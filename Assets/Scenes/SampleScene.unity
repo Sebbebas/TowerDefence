@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower Base (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6025251827436549033, guid: be369cacbbff69d43ad3d33735127418, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8809929618983358519, guid: be369cacbbff69d43ad3d33735127418, type: 3}
       propertyPath: Guns.Array.data[0]
       value: 
@@ -926,6 +930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower Base (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6025251827436549033, guid: be369cacbbff69d43ad3d33735127418, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8809929618983358519, guid: be369cacbbff69d43ad3d33735127418, type: 3}
       propertyPath: Guns.Array.data[0]
       value: 
@@ -986,6 +994,10 @@ PrefabInstance:
     - target: {fileID: 6025251827436549033, guid: be369cacbbff69d43ad3d33735127418, type: 3}
       propertyPath: m_Name
       value: Tower Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025251827436549033, guid: be369cacbbff69d43ad3d33735127418, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8809929618983358519, guid: be369cacbbff69d43ad3d33735127418, type: 3}
       propertyPath: Guns.Array.data[0]
@@ -1680,7 +1692,7 @@ PrefabInstance:
       objectReference: {fileID: 1841124901}
     - target: {fileID: 7314929749039706950, guid: 97c3b63cda748f1408d01b69abfb5f51, type: 3}
       propertyPath: SpawnableObjects.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7314929749039706950, guid: 97c3b63cda748f1408d01b69abfb5f51, type: 3}
       propertyPath: EnemyWavesInLevel.Array.size
@@ -1709,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 7314929749039706950, guid: 97c3b63cda748f1408d01b69abfb5f51, type: 3}
       propertyPath: SpawnableObjects.Array.data[5]
       value: 
-      objectReference: {fileID: 5600170160763236132, guid: bc9850c7f062b7649aa85a2b42278338, type: 3}
+      objectReference: {fileID: 506468609888630188, guid: d591e24532e55534bb2c14646b12538b, type: 3}
     - target: {fileID: 7314929749039706950, guid: 97c3b63cda748f1408d01b69abfb5f51, type: 3}
       propertyPath: EnemyWavesInLevel.Array.data[0].WaveKey.Array.size
       value: 1
