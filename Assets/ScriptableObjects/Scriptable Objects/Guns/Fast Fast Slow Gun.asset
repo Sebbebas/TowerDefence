@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584742e43a755e249934c34d49b85f27, type: 3}
   m_Name: Fast Fast Slow Gun
   m_EditorClassIdentifier: 
-  LockOnRange: 100
+  LockOnRange: 200
   WavesPerCycle:
   - {fileID: 11400000, guid: fbc7632b5f1f4554ab7c1cb461344d62, type: 2}
   - {fileID: 11400000, guid: fbc7632b5f1f4554ab7c1cb461344d62, type: 2}
   - {fileID: 11400000, guid: 7bad3c34e046947489c12eb3a3bb7673, type: 2}
-  CurrentWave: 0
-  WaveTimer: 0
-  LockedOnTargetEnemy: {fileID: 0}

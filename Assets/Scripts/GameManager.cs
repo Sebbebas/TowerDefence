@@ -41,12 +41,17 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI PlayerHealthText = null;
     public TextMeshProUGUI PlayerMoneyText = null;
     public TextMeshProUGUI WaveNumberText = null;
+    public List<TowerBase> AllTowers = new List<TowerBase>();
+
     [Header("Dynamic References")]
     public List<EnemyBase> AllEnemies = new List<EnemyBase>();
 
 
+
+
     private void Awake()
     {
+        
         GlobalGameManager = this;
         foreach (GameObject spawnable in SpawnableObjects)
         {
