@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ede4f6f09cba7449c0a8234bc5f33c, type: 3}
   m_Name: One Big Bullet
   m_EditorClassIdentifier: 
-  BaseBulletOffset: 0
-  ReloadModifier: 1
+  TrackingAimOffset: 0
   FireDelay: 1
   Bullets:
-  - ModelKey: SphereBullet
+  - SpawnKey: {fileID: 506468609888630188, guid: 37874fcded8525d4ba324ef4571f8aa9, type: 3}
     ColorFactor: {r: 0, g: 0, b: 0, a: 0}
     SpeedFactor: 10
     FireAngleOffset: 0

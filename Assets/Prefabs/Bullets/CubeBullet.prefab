@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletData:
-    ModelKey: 
+    SpawnKey: CubeBullet
     ColorFactor: {r: 1, g: 1, b: 1, a: 1}
     SpeedFactor: 1
     FireAngleOffset: 0

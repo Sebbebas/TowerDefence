@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ede4f6f09cba7449c0a8234bc5f33c, type: 3}
   m_Name: Triple Fast Bullet
   m_EditorClassIdentifier: 
-  BaseBulletOffset: 0
-  ReloadModifier: 1
+  TrackingAimOffset: 0
   FireDelay: 1
   Bullets:
-  - ModelKey: CubeBullet
+  - SpawnKey: {fileID: 506468609888630188, guid: d591e24532e55534bb2c14646b12538b, type: 3}
     ColorFactor: {r: 0.023584902, g: 0.29754236, b: 1, a: 0}
     SpeedFactor: 20
     FireAngleOffset: -15
@@ -24,7 +23,7 @@ MonoBehaviour:
     SizeFactor: 1
     ImpactDamage: 1
     ImpactHealth: 1
-  - ModelKey: CubeBullet
+  - SpawnKey: {fileID: 506468609888630188, guid: d591e24532e55534bb2c14646b12538b, type: 3}
     ColorFactor: {r: 0.023584902, g: 0.29754236, b: 1, a: 0}
     SpeedFactor: 20
     FireAngleOffset: 0
@@ -32,7 +31,7 @@ MonoBehaviour:
     SizeFactor: 1
     ImpactDamage: 1
     ImpactHealth: 1
-  - ModelKey: CubeBullet
+  - SpawnKey: {fileID: 506468609888630188, guid: d591e24532e55534bb2c14646b12538b, type: 3}
     ColorFactor: {r: 0.023584902, g: 0.29754236, b: 1, a: 0}
     SpeedFactor: 20
     FireAngleOffset: 15
