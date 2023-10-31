@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3704164420759747296}
   m_Layer: 0
   m_Name: CubeBullet
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletData:
-    SpawnKey: CubeBullet
+    SpawnKey: {fileID: 0}
     ColorFactor: {r: 1, g: 1, b: 1, a: 1}
     SpeedFactor: 1
     FireAngleOffset: 0

@@ -8,6 +8,9 @@ public class UpgradeScript : MonoBehaviour
     public float increasedUpgrade = 1f; //start with nothing
     private int currentOriginalCost;
 
+    [Header("Tower buy")]
+    [SerializeField] Animator cameraAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,4 +38,9 @@ public class UpgradeScript : MonoBehaviour
         }
     }
 
+    //Buy Towers
+    void TowerBuyMenu()
+    {
+
+    }
 }

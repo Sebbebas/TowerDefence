@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 8409544535226420415}
   - component: {fileID: 5039904369435208213}
   - component: {fileID: 2007429233915539440}
-  - component: {fileID: 5821388008145010370}
   - component: {fileID: 2323639661852080302}
+  - component: {fileID: 5821388008145010370}
   m_Layer: 0
   m_Name: SphereBullet
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2323639661852080302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506468609888630188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3749afd10fab9454bbe658ba03ba9616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletData:
+    SpawnKey: {fileID: 0}
+    ColorFactor: {r: 1, g: 1, b: 1, a: 1}
+    SpeedFactor: 1
+    FireAngleOffset: 0
+    FireDelay: 0
+    SizeFactor: 1
+    ImpactDamage: 1
+    ImpactHealth: 1
+  myMeshRenderer: {fileID: 2007429233915539440}
+  MoveDirection: {x: 0, y: 0, z: 0}
 --- !u!135 &5821388008145010370
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -106,26 +129,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2323639661852080302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506468609888630188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3749afd10fab9454bbe658ba03ba9616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletData:
-    SpawnKey: SphereBullet
-    ColorFactor: {r: 1, g: 1, b: 1, a: 1}
-    SpeedFactor: 1
-    FireAngleOffset: 0
-    FireDelay: 0
-    SizeFactor: 1
-    ImpactDamage: 1
-    ImpactHealth: 1
-  myMeshRenderer: {fileID: 2007429233915539440}
-  MoveDirection: {x: 0, y: 0, z: 0}
