@@ -34,7 +34,7 @@ public class Bullet
     }
     public void Reset()
     {
-
+        SizeFactor = 1.0f; 
     }
-
+    //size should change when exiting playmode to the serilized value
 }

@@ -23,7 +23,7 @@ public class BulletBase : MonoBehaviour
     {
         transform.Translate(MoveDirection * Time.deltaTime * BulletData.SpeedFactor);
         lifeTime += Time.deltaTime;
-        if (lifeTime >= 100.0f)
+        if (lifeTime >= 10.0f)
         {
             GameObject.Destroy(this.gameObject);
         }

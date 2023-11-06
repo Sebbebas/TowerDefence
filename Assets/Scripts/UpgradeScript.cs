@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class UpgradeScript : MonoBehaviour
 {
     [Header("Upgrades")]
     public int originalUpgrade1Cost = 50;
     public float increasedUpgrade = 1f; //start with nothing
-    private int currentOriginalCost;
+    public int currentOriginalCost;
+
+    [SerializeField] TextMeshProUGUI upgradeText = new TextMeshProUGUI();
 
     [Header("Tower buy")]
     [SerializeField] Animator cameraAnimator;
     [SerializeField] GameObject[] towers;
     [SerializeField] Material[] materials;  
     [SerializeField] bool menuOpen;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,7 @@ public class UpgradeScript : MonoBehaviour
     void Update()
     {
         TowerBuyMenu(0);
+        upgradeText.text = currentOriginalCost.ToString() + "$";
     }
 
     public void Upgrade()
@@ -38,7 +43,7 @@ public class UpgradeScript : MonoBehaviour
             
             foreach (TowerBase tower in GameManager.GlobalGameManager.AllTowers)
             {
-                tower.Guns[0].WavesPerCycle[0].Bullets[0].SizeFactor = 1;
+                tower.Guns[0].WavesPerCycle[0].Bullets[0].SizeFactor += 0.5f;
             }
         }
     }
