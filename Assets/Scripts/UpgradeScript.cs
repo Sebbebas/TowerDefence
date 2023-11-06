@@ -13,8 +13,7 @@ public class UpgradeScript : MonoBehaviour
     [Header("Tower buy")]
     [SerializeField] Animator cameraAnimator;
     [SerializeField] GameObject[] towers;
-    [SerializeField] GameObject[] unlockedTowers;
-    [SerializeField] Material[] materials;
+    [SerializeField] Material[] materials;  
     [SerializeField] bool menuOpen;
 
     // Start is called before the first frame update
@@ -26,7 +25,7 @@ public class UpgradeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TowerBuyMenu();
+        TowerBuyMenu(0);
     }
 
     public void Upgrade()
@@ -51,16 +50,32 @@ public class UpgradeScript : MonoBehaviour
         cameraAnimator.SetBool("Open Menu", b);
         menuOpen = b;
 
-        //if (menuOpen) { Time.timeScale = 0f; }
-        //else { Time.timeScale = 1f; }
+        if (menuOpen) { Time.timeScale = 0f; }
+        else { Time.timeScale = 1f; }
     }
 
-    void TowerBuyMenu()
+    void TowerBuyMenu(int price)
     {
-        bool unlocked = false;
+        if(price <= GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney)
+        {
+            GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney -= price;
+        }
+
         foreach (GameObject tower in towers)
         {
             Renderer meshRenderer = tower.GetComponent<Renderer>();
+            bool unlocked;
+
+            if (tower.GetComponentInChildren<Light>() != isActiveAndEnabled)
+            {
+                unlocked = true;
+            }
+            else
+            {
+                unlocked = false;
+            }
+
+            //Enable Towers
             if (unlocked)
             {
                 tower.SetActive(true);
@@ -75,15 +90,6 @@ public class UpgradeScript : MonoBehaviour
             {
                 tower.SetActive(false);
             }
-        }
-    }
-    public void BuyTower(int tower)
-    {
-        Transform notUnlocked = towers[tower].GetComponentInChildren<Transform>();
-
-        if(GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney >= 0)
-        {
-            Destroy(notUnlocked);
         }
     }
 }

@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public PlayerData CurrentPlayerData = null;
     public TextMeshProUGUI PlayerHealthText = null;
     public TextMeshProUGUI PlayerMoneyText = null;
+    public TextMeshProUGUI PlayerMoneyText1 = null;
     public TextMeshProUGUI WaveNumberText = null;
     public List<TowerBase> AllTowers = new List<TowerBase>();
 
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         PlayerMoneyText.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
+        PlayerMoneyText1.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
     }
     public void OnSpawnNextWave()
     {
