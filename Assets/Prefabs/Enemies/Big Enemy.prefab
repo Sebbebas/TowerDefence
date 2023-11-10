@@ -360,8 +360,8 @@ MonoBehaviour:
     SpawnDelay: 0
     MaxHealth: 10
     Damage: 3
-    MoneyOnKill: 0
-    MoveSpeed: 2.5
+    MoneyOnKill: 15
+    MoveSpeed: 1.75
     Health: 0
     MovementDirection: {x: 0, y: 0, z: 0}
   EnemyHealth: {fileID: 2921149102124915584}

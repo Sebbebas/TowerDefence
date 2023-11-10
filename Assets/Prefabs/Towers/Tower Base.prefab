@@ -121,3 +121,8 @@ MonoBehaviour:
   Guns:
   - {fileID: 0}
   CurrentGun: 0
+  CurrentBullet: 0
+  BulletDelayTimer: 0
+  CurrentWave: 0
+  WaveTimer: 0
+  LockedOnTargetEnemy: {fileID: 0}

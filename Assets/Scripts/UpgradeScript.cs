@@ -19,10 +19,12 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] Material[] materials;  
     [SerializeField] bool menuOpen;
 
+    PauseGame pauseGame;
 
     // Start is called before the first frame update
     void Start()
     {
+        pauseGame = FindObjectOfType<PauseGame>();
         currentOriginalCost = originalUpgrade1Cost;
     }
 
@@ -30,7 +32,7 @@ public class UpgradeScript : MonoBehaviour
     void Update()
     {
         TowerBuyMenu(0);
-        upgradeText.text = currentOriginalCost.ToString() + "$";
+        if (upgradeText != null) { upgradeText.text = currentOriginalCost.ToString() + "$"; }
     }
 
     public void Upgrade()
@@ -52,11 +54,11 @@ public class UpgradeScript : MonoBehaviour
 
     public void OpenMenu(bool b)
     {
-        cameraAnimator.SetBool("Open Menu", b);
+        cameraAnimator.SetBool("OpenBuyMenu", b);
         menuOpen = b;
 
-        if (menuOpen) { Time.timeScale = 0f; }
-        else { Time.timeScale = 1f; }
+        if (menuOpen) { pauseGame.Pause(true); }
+        else { pauseGame.Pause(false); }
     }
 
     void TowerBuyMenu(int price)

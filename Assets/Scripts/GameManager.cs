@@ -43,16 +43,17 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI PlayerMoneyText1 = null;
     public TextMeshProUGUI WaveNumberText = null;
     public List<TowerBase> AllTowers = new List<TowerBase>();
+    public float waveSpawnDelay = 10f;
+    private float waveSpawnDelayAtStart;
 
     [Header("Dynamic References")]
     public List<EnemyBase> AllEnemies = new List<EnemyBase>();
 
-
-
-
     private void Awake()
     {
-        
+        waveSpawnDelayAtStart = waveSpawnDelay;
+        waveSpawnDelay = 0f;
+
         GlobalGameManager = this;
         foreach (GameObject spawnable in SpawnableObjects)
         {
@@ -69,12 +70,23 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        PlayerMoneyText.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
-        PlayerMoneyText1.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
+        if(PlayerMoneyText != null || PlayerMoneyText1 != null)
+        {
+            PlayerMoneyText.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
+            PlayerMoneyText1.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
+        }
+
+        waveSpawnDelay -= Time.deltaTime;
+        if(waveSpawnDelay <= 0f) { waveSpawnDelay = 0f; }
     }
     public void OnSpawnNextWave()
     {
-        DoSpawnWave();
+        if(EnemyWavesInLevel.Count - 1 <= CurrentEnemyWave || waveSpawnDelay != 0f) { return; }
+        else 
+        { 
+            DoSpawnWave(); 
+            waveSpawnDelay = waveSpawnDelayAtStart;
+        }
     }
 
     private void DoSpawnWave()   
