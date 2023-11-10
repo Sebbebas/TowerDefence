@@ -1651,8 +1651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 109.770004, y: 0}
+  m_SizeDelta: {x: -219.53998, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556260992
 MonoBehaviour:
@@ -2122,7 +2122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalUpgrade1Cost: 2
-  increasedUpgrade: 1
+  increasedUpgrade: 2
   currentOriginalCost: 0
   upgradeText: {fileID: 556260992}
   cameraAnimator: {fileID: 963194229}

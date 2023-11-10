@@ -8,7 +8,7 @@ public class UpgradeScript : MonoBehaviour
 {
     [Header("Upgrades")]
     public int originalUpgrade1Cost = 50;
-    public float increasedUpgrade = 1f; //start with nothing
+    public float increasedUpgrade = 1.2f; //start with nothing
     public int currentOriginalCost;
 
     [SerializeField] TextMeshProUGUI upgradeText = new TextMeshProUGUI();
@@ -35,17 +35,18 @@ public class UpgradeScript : MonoBehaviour
         if (upgradeText != null) { upgradeText.text = currentOriginalCost.ToString() + "$"; }
     }
 
-    public void Upgrade()
+    public void Upgrade(bool money)
     {
         if (GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney >= currentOriginalCost)
         {
             GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney -= currentOriginalCost;
             currentOriginalCost = (int)(currentOriginalCost * increasedUpgrade);
-            increasedUpgrade += 0.2f;
             
             foreach (TowerBase tower in GameManager.GlobalGameManager.AllTowers)
             {
                 tower.Guns[0].WavesPerCycle[0].Bullets[0].SizeFactor += 0.5f;
+                tower.Guns[0].WavesPerCycle[0].Bullets[0].SpeedFactor += 0.5f;
+
             }
         }
     }
