@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
+    [SerializeField] bool debug;
+
     Animator cameraAnimator;
 
     public void Start()
     {
         cameraAnimator = FindObjectOfType<Camera>().GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (!debug) { return; }
+        Debug.Log(Time.timeScale);
     }
 
     public void Pause(bool a)

@@ -34,7 +34,7 @@ public class UpgradeScript : MonoBehaviour
         TowerBuyMenu(0);
         if (upgradeText != null) { upgradeText.text = currentOriginalCost.ToString() + "$"; }
 
-        if(GameManager.GlobalGameManager.CurrentPlayerData.PlayerHealth <= 0) { cameraAnimator.SetBool("Lose", true); pauseGame.Pause(true); }
+        if(GameManager.GlobalGameManager.CurrentPlayerData.PlayerHealth <= 0) { cameraAnimator.SetBool("Lose", true); }
     }
 
     public void Upgrade()

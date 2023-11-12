@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         waveSpawnDelayAtStart = waveSpawnDelay;
+        waveCooldownSlider.maxValue = waveSpawnDelayAtStart;
         waveSpawnDelay = 0f;
 
         GlobalGameManager = this;
