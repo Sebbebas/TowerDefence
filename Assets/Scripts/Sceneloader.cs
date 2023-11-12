@@ -7,11 +7,13 @@ public class Sceneloader : MonoBehaviour
 {
     //Next Scene transition
     [Header("Transition")]
-    [SerializeField] float transitionTime = 1.5f;
+    [SerializeField] Animator transition;
+    [SerializeField] string boolName;
+    [SerializeField] float transitionTime = 1f;
 
     //Quit
     [Header("QuitGame")]
-    [SerializeField] int quitTime = 1;
+    [SerializeField] float quitTime = 0f;
 
     //Loads a certian Scene
     public void LoadSceneNumber(int sceneNumber)
@@ -21,6 +23,7 @@ public class Sceneloader : MonoBehaviour
 
     IEnumerator ChangeSceneRoutine(int scene)
     {
+        PlayAnimation();
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }
@@ -36,6 +39,15 @@ public class Sceneloader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    //PlayAnimation
+    void PlayAnimation()
+    {
+        if(transition == null) { return; }
+
+        transition.SetBool(boolName, true);
+    }
+
 
     //Quits the game
     public void Quit()

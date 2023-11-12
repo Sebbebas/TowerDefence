@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 /*
 THE MASTER BECOMES 
 A HUMAN FURNACE
@@ -40,9 +41,12 @@ public class GameManager : MonoBehaviour
     public PlayerData CurrentPlayerData = null;
     public TextMeshProUGUI PlayerHealthText = null;
     public TextMeshProUGUI PlayerMoneyText = null;
-    public TextMeshProUGUI PlayerMoneyText1 = null;
     public TextMeshProUGUI WaveNumberText = null;
     public List<TowerBase> AllTowers = new List<TowerBase>();
+
+    [Header("Extra")]
+    public TextMeshProUGUI PlayerMoneyTextInBuyMenu = null;
+    public Slider waveCooldownSlider;
     public float waveSpawnDelay = 10f;
     private float waveSpawnDelayAtStart;
 
@@ -70,15 +74,22 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(PlayerMoneyText != null || PlayerMoneyText1 != null)
+        WaveCooldown();
+
+        if (PlayerMoneyText != null || PlayerMoneyTextInBuyMenu != null)
         {
             PlayerMoneyText.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
-            PlayerMoneyText1.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
+            PlayerMoneyTextInBuyMenu.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
         }
-
-        waveSpawnDelay -= Time.deltaTime;
-        if(waveSpawnDelay <= 0f) { waveSpawnDelay = 0f; }
     }
+
+    private void WaveCooldown()
+    {
+        waveSpawnDelay -= Time.deltaTime;
+        if (waveCooldownSlider != null) { waveCooldownSlider.value = waveSpawnDelay; }
+        if (waveSpawnDelay <= 0f) { waveSpawnDelay = 0f; }
+    }
+
     public void OnSpawnNextWave()
     {
         if(EnemyWavesInLevel.Count - 1 <= CurrentEnemyWave || waveSpawnDelay != 0f) { return; }

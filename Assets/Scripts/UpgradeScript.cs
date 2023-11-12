@@ -33,9 +33,11 @@ public class UpgradeScript : MonoBehaviour
     {
         TowerBuyMenu(0);
         if (upgradeText != null) { upgradeText.text = currentOriginalCost.ToString() + "$"; }
+
+        if(GameManager.GlobalGameManager.CurrentPlayerData.PlayerHealth <= 0) { cameraAnimator.SetBool("Lose", true); pauseGame.Pause(true); }
     }
 
-    public void Upgrade(bool money)
+    public void Upgrade()
     {
         if (GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney >= currentOriginalCost)
         {
@@ -52,7 +54,6 @@ public class UpgradeScript : MonoBehaviour
     }
 
     //Buy Towers
-
     public void OpenMenu(bool b)
     {
         cameraAnimator.SetBool("OpenBuyMenu", b);

@@ -13,8 +13,8 @@ public class PauseGame : MonoBehaviour
 
     public void Pause(bool a)
     {
-        if (a) { Time.timeScale = 0; }
-        else { Time.timeScale = 1; }
+        if (a) { Time.timeScale = 0; }  // a = true
+        else { Time.timeScale = 1; }    // a = false
     }
     public void OpenPauseMenu(bool b)
     {
