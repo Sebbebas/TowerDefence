@@ -36,6 +36,7 @@ public class Sceneloader : MonoBehaviour
 
     IEnumerator ReloaadSceneRoutine()
     {
+        PlayAnimation();
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -52,6 +53,7 @@ public class Sceneloader : MonoBehaviour
     //Quits the game
     public void Quit()
     {
+        PlayAnimation();
         StartCoroutine(QuitGameRoutine());
     }
 

@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public Slider waveCooldownSlider;
     public float waveSpawnDelay = 10f;
     private float waveSpawnDelayAtStart;
+    public bool win = false;
 
     [Header("Dynamic References")]
     public List<EnemyBase> AllEnemies = new List<EnemyBase>();
@@ -82,6 +83,10 @@ public class GameManager : MonoBehaviour
             PlayerMoneyText.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
             PlayerMoneyTextInBuyMenu.text = CurrentPlayerData.PlayerMoney.ToString() + "$";
         }
+        if (CurrentEnemyWave == EnemyWavesInLevel.Count && FindObjectsOfType<EnemyBase>().Length <= 0 && GlobalGameManager.CurrentPlayerData.PlayerHealth != 0)
+        {
+            win = true;
+        }
     }
 
     private void WaveCooldown()
@@ -93,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void OnSpawnNextWave()
     {
-        if(EnemyWavesInLevel.Count - 1 <= CurrentEnemyWave || waveSpawnDelay != 0f) { return; }
+        if(EnemyWavesInLevel.Count <= CurrentEnemyWave || waveSpawnDelay != 0f) { return; }
         else 
         { 
             DoSpawnWave(); 
@@ -109,7 +114,7 @@ public class GameManager : MonoBehaviour
             enemyWave.GetComponent<EnemyWave>().MovementDirection = this.transform.position - EnemyStartingPos.position;
         }
         CurrentEnemyWave++;
-        if (CurrentEnemyWave >= EnemyWavesInLevel.Count)
+        if (CurrentEnemyWave >= EnemyWavesInLevel.Count + 1)
         { CurrentEnemyWave = 0; }
         WaveNumberText.text = $"Wave {CurrentEnemyWave}/{EnemyWavesInLevel.Count}";
     }

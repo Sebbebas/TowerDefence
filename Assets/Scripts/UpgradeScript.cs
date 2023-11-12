@@ -35,6 +35,7 @@ public class UpgradeScript : MonoBehaviour
         if (upgradeText != null) { upgradeText.text = currentOriginalCost.ToString() + "$"; }
 
         if(GameManager.GlobalGameManager.CurrentPlayerData.PlayerHealth <= 0) { cameraAnimator.SetBool("Lose", true); }
+        if(GameManager.GlobalGameManager.win) { cameraAnimator.SetBool("Win", true); }
     }
 
     public void Upgrade()
@@ -46,9 +47,11 @@ public class UpgradeScript : MonoBehaviour
             
             foreach (TowerBase tower in GameManager.GlobalGameManager.AllTowers)
             {
-                tower.Guns[0].WavesPerCycle[0].Bullets[0].SizeFactor += 0.5f;
+                //Speed All Bullets
                 tower.Guns[0].WavesPerCycle[0].Bullets[0].SpeedFactor += 0.5f;
-
+                tower.Guns[0].WavesPerCycle[0].Bullets[1].SpeedFactor += 0.5f;
+                tower.Guns[0].WavesPerCycle[0].Bullets[2].SpeedFactor += 0.5f;
+                tower.Guns[0].WavesPerCycle[2].Bullets[0].SpeedFactor += 0.75f;
             }
         }
     }

@@ -10,7 +10,7 @@ public class BuyTowers : MonoBehaviour
     {
         Light light = GetComponentInChildren<Light>();
 
-        if (price <= GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney)
+        if (price <= GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney && gameObject.activeSelf == true)
         {
             GameManager.GlobalGameManager.CurrentPlayerData.PlayerMoney -= price;
             light.gameObject.SetActive(false);
